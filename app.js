@@ -5,14 +5,17 @@ const Mongoose = require('mongoose');
 const DB_URL = 'mongodb+srv://backendconcoxdeveloper:V3jUV7QXqEoAtnhy@cluster0-zhjde.mongodb.net/__CONCOX__';
 const PORT = 9090;
 
-const users = require('./router/auth');
+const auth = require('./router/auth');
+const devices = require('./router/devices');
 const authController = require('./controllers/auth.controller');
 
 const app = express();
 
 app.use(authController.verifyJWTToken)
 
-app.use('/users', users);
+app.use('/auth', auth);
+
+app.use('/devices', devices);
 
 app.use(express.json());
 

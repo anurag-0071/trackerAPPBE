@@ -1,5 +1,4 @@
 
-const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 
 const _USERNAME = "username";
@@ -29,8 +28,7 @@ const login = async (req, res) => {
 }
 
 const verifyJWTToken = async (req, res, next) => {
-  console.log("req.url", req.url)
-  if (req.url === '/users/login') {
+  if (req.url === '/auth/login') {
     next();
   } else {
     try {
