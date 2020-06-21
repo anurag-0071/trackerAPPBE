@@ -7,6 +7,7 @@ const PORT = 9090;
 
 const auth = require('./router/auth');
 const devices = require('./router/devices');
+const status = require('./router/status');
 const authController = require('./controllers/auth.controller');
 
 const app = express();
@@ -14,8 +15,8 @@ const app = express();
 app.use(authController.verifyJWTToken)
 
 app.use('/auth', auth);
-
 app.use('/devices', devices);
+app.use('/status', status);
 
 app.use(express.json());
 
